@@ -1,0 +1,20 @@
+[
+  "test_audio.py::test_read_wavfile_1",
+  "test_audio.py::test_read_wavfile_2",
+  "test_audio.py::test_sampling_rate_1",
+  "test_audio.py::test_sampling_rate_2",
+  "test_audio.py::test_is_mono_1",
+  "test_audio.py::test_is_mono_2",
+  "test_audio.py::test_is_stereo_1",
+  "test_audio.py::test_is_stereo_2",
+  "test_audio.py::test_number_of_sampling_points_1",
+  "test_audio.py::test_number_of_sampling_points_2",
+  "test_audio.py::test_data_type_1",
+  "test_audio.py::test_data_type_2",
+  "test_audio.py::test_duration_1",
+  "test_audio.py::test_duration_2",
+  "test_audio.py::test_max_1",
+  "test_audio.py::test_max_2",
+  "test_audio.py::test_min_1",
+  "test_audio.py::test_min_2"
+]
