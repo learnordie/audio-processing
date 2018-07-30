@@ -70,28 +70,3 @@ class Audio:
     def min(self):
         """ Return the minimum PCM (amplitude) value of the data. """
         return self.data.min()
-
-
-import os
-import numpy
-
-filename4 = os.path.join(os.path.expanduser("~"),
-                         "Projects", "audio_processing", "samples",
-                         "harvard.wav")
-harvard = Audio(filename4)
-harvard2 = Audio(filename4)
-
-print(harvard.data[:, 0])
-print(harvard.data[:, 1])
-print(harvard.data)
-
-numpy.array_equal(harvard.data[:, 0], harvard2.data[:, 0])
-
-filename2 = os.path.join(os.path.expanduser("~"),
-                         "Projects", "audio_processing", "samples",
-                         "mono_22050_16bits.wav")
-
-mono = Audio(filename2)
-mono2 = Audio(filename2)
-
-print(mono.data)
