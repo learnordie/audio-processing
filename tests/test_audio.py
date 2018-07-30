@@ -169,18 +169,40 @@ def test_duration_2():
     assert (harvard.duration() - 18.356190476190477) < precision
 
 
-# def test_left_channel_1():
-#     """ Test the left_channel method of a mono file 'mono_22050_16bits.wav',
-#     where data[:, 0] is the only channel.
+def test_left_channel_1():
+    """ Test the left_channel method of a mono file 'mono_22050_16bits.wav',
+    where mono_22050_16bits.data is the only channel.
 
-#     """
-#     # THIS MIGHT BE INCORRECT:
-#     # A channel is a tuple with two elements:
-#     #     - numpy array with the data of the audio
-#     #     - data type
-#     array1, dtype1 = mono_22050_16bits.left_channel()
-#     array2, dtype2 = mono_22050_16bits.data[:, 0]
-#     assert numpy.array_equal(array1, array2) and (dtype1 == dtype2)
+    """
+    assert numpy.array_equal(mono_22050_16bits.left_channel(),
+                             mono_22050_16bits.data)
+
+
+def test_left_channel_2():
+    """ Test the left_channel method of a stereo file 'harvard.wav',
+    where harvard.data[:, 0]  is the left channel.
+
+    """
+    assert numpy.array_equal(harvard.left_channel(),
+                             harvard.data[:, 0])
+
+
+def test_right_channel_1():
+    """ Test the right_channel method of a mono file 'mono_22050_16bits.wav',
+    where mono_22050_16bits.data is the only channel.
+
+    """
+    assert numpy.array_equal(mono_22050_16bits.right_channel(),
+                             mono_22050_16bits.data)
+
+
+def test_right_channel_2():
+    """ Test the rigth_channel method of a stereo file 'harvard.wav',
+    where harvard.data[:, 1]  is the right channel.
+
+    """
+    assert numpy.array_equal(harvard.right_channel(),
+                             harvard.data[:, 1])
 
 
 def test_max_1():

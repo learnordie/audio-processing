@@ -49,16 +49,19 @@ class Audio:
         npoints = self.number_of_sampling_points()
         return npoints / self.rate
 
-    # def left_channel(self):
-    #     """ Return the left channel of an audio. """
-    #     return self.data[:, 0]
+    def left_channel(self):
+        """ Return the left channel of an audio. """
+        if self.is_stereo():
+            return self.data[:, 0]
+        else:
+            return self.data
 
-    # def right_channel(self):
-    #     """ Return the right channel of an audio."""
-    #     if self.is_stereo():
-    #         return self.data[:, 1]
-    #     else:
-    #         return self.data[:, 0]
+    def right_channel(self):
+        """ Return the right channel of an audio."""
+        if self.is_stereo():
+            return self.data[:, 1]
+        else:
+            return self.data
 
     def max(self):
         """ Return the maximum PCM (amplitude) value of the data. """
@@ -69,10 +72,26 @@ class Audio:
         return self.data.min()
 
 
-# import os
+import os
+import numpy
 
-# filename4 = os.path.join(os.path.expanduser("~"),
-#                          "Projects", "audio_processing", "samples",
-#                          "harvard.wav")
-# harvard = Audio(filename4)
-# harvard.data[:,0]
+filename4 = os.path.join(os.path.expanduser("~"),
+                         "Projects", "audio_processing", "samples",
+                         "harvard.wav")
+harvard = Audio(filename4)
+harvard2 = Audio(filename4)
+
+print(harvard.data[:, 0])
+print(harvard.data[:, 1])
+print(harvard.data)
+
+numpy.array_equal(harvard.data[:, 0], harvard2.data[:, 0])
+
+filename2 = os.path.join(os.path.expanduser("~"),
+                         "Projects", "audio_processing", "samples",
+                         "mono_22050_16bits.wav")
+
+mono = Audio(filename2)
+mono2 = Audio(filename2)
+
+print(mono.data)
