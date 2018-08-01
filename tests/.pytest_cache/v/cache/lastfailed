@@ -1,5 +1,0 @@
-{
-  "test_audio.py": true,
-  "test_audio.py::test_left_channel_1": true,
-  "test_read_audio.py::test_sample_rate_with_empty_file": true
-}
