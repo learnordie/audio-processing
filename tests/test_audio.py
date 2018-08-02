@@ -7,17 +7,16 @@
 import os
 import numpy
 import pytest
+from audio_processing import audio
 
-# before importing modules, we need to append this path to the PYTHONPATH
-# sys.path.append('$HOME/Projects/audio_processing')
 
-import audio
-
-SAMPLES_DIR = os.path.join(os.path.dirname(""), "samples")
+SAMPLES_DIR = os.path.join(os.path.expanduser("~"),
+                           "Projects", "audio_processing", "samples")
 
 # -------------------------------- #
 # Objects needed to do the testing #
 # -------------------------------- #
+
 
 filename1 = os.path.join(SAMPLES_DIR, "stereo_44100_16bits.wav")
 stereo_44100_16bits = audio.Audio(filename1)
@@ -30,6 +29,7 @@ mono_44100_32bits = audio.Audio(filename3)
 
 filename4 = os.path.join(SAMPLES_DIR, "harvard.wav")
 harvard = audio.Audio(filename4)
+
 
 # --------------------- #
 # Functions for testing #
