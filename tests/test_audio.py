@@ -7,7 +7,7 @@
 import os
 import numpy
 import pytest
-from audio_processing import audio
+import audio_processing.audio as audio
 
 
 SAMPLES_DIR = os.path.join(os.path.expanduser("~"),
